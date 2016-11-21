@@ -11,7 +11,7 @@ import en.haagahelia.course.web.StatController;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BookstoreApplicationTests {
+public class CoincidenceApplicationTests {
 	@Autowired StatController controller;
 	@Test
 	public void contextLoads() throws Exception {

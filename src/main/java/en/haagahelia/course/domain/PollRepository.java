@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 import en.haagahelia.course.domain.Poll;
 
 public interface PollRepository extends CrudRepository<Poll, Long>{
-	List<Poll> findByName(String name);
+	List<Poll> findBySubject(String subject);
 
 }

@@ -14,27 +14,21 @@ public class Stat {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	private String author;
-	private String title;
-	private int year;
-	private String isbn;
-	private double price;
+	private int percent;
+	private String answer;
 	
 	@ManyToOne
 	@JsonIgnore
-    @JoinColumn(name = "categoryId")
+    @JoinColumn(name = "pollId")
 	private Poll poll;
 	
-	public Stat(String author, String title, int year, String isbn, double price, Poll poll) {
+	public Stat(int percent, String answer, Poll poll) {
 		super();
-		this.author = author;
-		this.title = title;
-		this.year = year;
-		this.isbn = isbn;
-		this.price = price;
+		this.percent = percent;
+		this.answer = answer;
 		this.poll = poll;
 	}
-	
+
 	public Stat() {
 
 	}
@@ -42,51 +36,38 @@ public class Stat {
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getTitle() {
-		return title;
+
+	public int getPercent() {
+		return percent;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+
+	public void setPercent(int percent) {
+		this.percent = percent;
 	}
-	public String getAuthor() {
-		return author;
+
+	public String getAnswer() {
+		return answer;
 	}
-	public void setAuthor(String author) {
-		this.author = author;
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
-	public int getYear() {
-		return year;
-	}
-	public void setYear(int year) {
-		this.year = year;
-	}
-	public String getIsbn() {
-		return isbn;
-	}
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
-	public Poll getCategory() {
+
+	public Poll getPoll() {
 		return poll;
 	}
-	public void setCategory(Poll poll) {
+
+	public void setPoll(Poll poll) {
 		this.poll = poll;
 	}
 
 	@Override
 	public String toString() {
-		return "Stat [id=" + id + ", title=" + title + ", author=" + author + ", year=" + year + ", isbn=" + isbn + ", price=" + price
-				+ "]";
-	}
-	
+		return "Stat [id=" + id + ", percent=" + percent + ", answer=" + answer + ", poll=" + poll + "]";
+	}	
 
 }
