@@ -21,7 +21,7 @@ public class Stat {
 	
 	@ManyToOne
 	@JsonIgnore
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "pollId")
 	private Poll poll; //connecting to parent table with a many-to-one relation. One question has many answers
 	
 	public Stat(int percent, String answer, Poll poll) {

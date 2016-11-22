@@ -8,26 +8,17 @@
 <body>
 	
 	<div class="col-md-4 col-md-offset-4">
-		<h1>Add book</h1>
+		<h1>Add stat</h1>
 		<form th:object="${stat}" th:action="@{save}" action="#" method="post">
-		  	<label for="author">Author</label>
-			<input type="text" id="author" th:field="*{author}" class="form-control"/>
+		  	<label for="answer">Answer</label>
+			<input type="text" id="answer" th:field="*{answer}" class="form-control"/>
 
-		  	<label for="title">Title</label>
-			<input type="text" id="title" th:field="*{title}" class="form-control"/>
+		  	<label for="percent">Percentage</label>
+			<input type="text" id="percent" th:field="*{percent}" class="form-control"/>
 
-		  	<label for="isbn">ISBN</label>
-			<input type="text" th:field="*{isbn}" class="form-control"/>
-
-			<label for="year">Year</label>
-			<input type="text" th:field="*{year}" class="form-control"/>
-
-			<label for="price">Price</label>
-			<input type="text" th:field="*{price}" class="form-control"/>
-
-			<label for="catlist">Category</label>
-			<select id="catlist" th:field="*{category}" class="form-control">
-				<option th:each="category: ${categories}" th:value="${category.categoryId}" th:text="${category.name}"></option>
+			<label for="polllist">Poll</label>
+			<select id="polllist" th:field="*{poll}" class="form-control">
+				<option th:each="poll: ${polls}" th:value="${poll.pollId}" th:text="${poll.question}"></option>
 			</select>
 
 			<input type="submit" value="Save" class="btn btn-success"></input>

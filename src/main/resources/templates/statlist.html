@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-    <title>Coincidence App: stats list/title>
+    <title>Coincidence App: stats list</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
@@ -29,6 +29,6 @@
 			<td><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/delete/{id}(id=${stat.id})}" class="btn btn-danger">Delete</a></td>
 		</tr>	
 	</table>
-	<a href="/add" class="btn btn-success">Add Book</a>
+	<a href="/add" class="btn btn-success">Add stat</a>
 </body>
 </html>

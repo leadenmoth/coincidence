@@ -20,11 +20,11 @@ public class Poll {
 	*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id; //auto-generated id to simplify add/remove operations
+	private Long pollId; //auto-generated id to simplify add/remove operations
 	private String question;
 	private String source;
 	private String subject;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "poll")
 	private List<Stat> stats; //linking to dependent Stats table
 
 	public Poll(String question, String source, String subject) {
@@ -38,12 +38,12 @@ public class Poll {
 		
 	}
 	
-	public Long getId() {
-		return id;
+	public Long getPollId() {
+		return pollId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setPollId(Long pollId) {
+		this.pollId = pollId;
 	}
 
 	public String getQuestion() {
@@ -77,12 +77,11 @@ public class Poll {
 		this.stats = stats;
 	}
 
-	public Poll(Long id, String question, String source, String subject) {
-		super();
-		this.id = id;
-		this.question = question;
-		this.source = source;
-		this.subject = subject;
+	@Override
+	public String toString() {
+		return "Poll [pollId=" + pollId + ", question=" + question + ", source=" + source + ", subject=" + subject + ", stats="
+				+ stats + "]";
 	}
+
 	
 }
