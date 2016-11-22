@@ -14,13 +14,15 @@ public class Stat {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+    //for this demo let's keep percentages whole. In future there should be an interface for the user to specify
+    //the degree of search fuzziness, like "+/- 3.4%"
 	private int percent;
 	private String answer;
 	
 	@ManyToOne
 	@JsonIgnore
-    @JoinColumn(name = "pollId")
-	private Poll poll;
+    @JoinColumn(name = "id")
+	private Poll poll; //connecting to parent table with a many-to-one relation. One question has many answers
 	
 	public Stat(int percent, String answer, Poll poll) {
 		super();

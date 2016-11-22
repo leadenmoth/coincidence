@@ -11,14 +11,21 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Poll {
+	/*
+	This is essentially a stub for a Poll object/repository.
+	Eventually it will contain many fields to serve as search tags.
+	Ultimately user should be able to limit search to something like
+	"Moscovites 18-25, pet owners, polled between 2011 and 2014"
+	For this demo we only have a free-form question field plus source and one-word subject ("who?")
+	*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long id; //auto-generated id to simplify add/remove operations
 	private String question;
 	private String source;
 	private String subject;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
-	private List<Stat> stats;
+	private List<Stat> stats; //linking to dependent Stats table
 
 	public Poll(String question, String source, String subject) {
 		super();

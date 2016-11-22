@@ -19,51 +19,51 @@ public class StatController {
 	@Autowired
 	private StatRepository repository;
 	@Autowired
-	private PollRepository crepository;
+	private PollRepository prepository;
 	
 	@RequestMapping(value="/index", method=RequestMethod.GET)
-	public String bookIndex(Model model) {
+	public String statIndex(Model model) {
 		return "index";
 	}
 	
-	@RequestMapping(value="/booklist", method=RequestMethod.GET)
-	public String bookList(Model model) {
-		model.addAttribute("booklist", repository.findAll());
-		return "booklist";
+	@RequestMapping(value="/statlist", method=RequestMethod.GET)
+	public String statList(Model model) {
+		model.addAttribute("statlist", repository.findAll());
+		return "statlist";
 	}
 	
-	//So that logging out and in again would open booklist. There are probably better ways of doing this, but...
+	//So that logging out and in again would open statlist. There are probably better ways of doing this, but...
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String redirect() {
-		return "redirect:/booklist";
+		return "redirect:/statlist";
 	}
 	
-    @RequestMapping(value="/books", method = RequestMethod.GET)
-    public @ResponseBody List<Stat> bookListRest() {	
+    @RequestMapping(value="/stats", method = RequestMethod.GET)
+    public @ResponseBody List<Stat> statListRest() {	
         return (List<Stat>) repository.findAll();
     } 
 	
-    @RequestMapping(value="/book/{id}", method = RequestMethod.GET)
-    public @ResponseBody Stat findBookRest(@PathVariable("id") Long bookId) {	
-    	return repository.findOne(bookId);
+    @RequestMapping(value="/stat/{id}", method = RequestMethod.GET)
+    public @ResponseBody Stat findStatRest(@PathVariable("id") Long statId) {	
+    	return repository.findOne(statId);
     }  
     
     @RequestMapping(value = "/add")
-    public String addBook(Model model){
-    	model.addAttribute("book", new Stat());
-    	model.addAttribute("categories", crepository.findAll());
-        return "addbook";
+    public String addStat(Model model){
+    	model.addAttribute("stat", new Stat());
+    	model.addAttribute("polls", prepository.findAll());
+        return "addstat";
     }     
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveBook(Stat stat){
+    public String saveStat(Stat stat){
         repository.save(stat);
-        return "redirect:booklist";
+        return "redirect:statlist";
     }
     @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
-    public String deleteBook(@PathVariable("id") Long bookId, Model model) {
-    	repository.delete(bookId);
-    	return "redirect:/booklist";
+    public String deleteStat(@PathVariable("id") Long statId, Model model) {
+    	repository.delete(statId);
+    	return "redirect:/statlist";
     }
     
     @RequestMapping(value="/login")
