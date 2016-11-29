@@ -1,6 +1,7 @@
 package en.haagahelia.course.web;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +31,20 @@ public class StatController {
 	}
 	@RequestMapping(value="/index", method=RequestMethod.POST)
 	public String statSubmit(@ModelAttribute Message msg, Model model) {
+		int value = msg.getValue();
+		Random random = new Random();
+		while (repository.findByPercent(value).size() < 2)
+		{
+			value = random.nextInt(101);
+		}
+		
+		List<Stat> fittingStats = repository.findByPercent(value);
+		msg.setValue(value);
+		int chosenStatIndex = random.nextInt(fittingStats.size());
+		msg.setMsg1(fittingStats.get(chosenStatIndex).getPoll().getSubject() + " " + fittingStats.get(chosenStatIndex).getAnswer());
+		fittingStats.remove(chosenStatIndex);
+		chosenStatIndex = random.nextInt(fittingStats.size());
+		msg.setMsg2(fittingStats.get(chosenStatIndex).getPoll().getSubject() + " " + fittingStats.get(chosenStatIndex).getAnswer());
 		model.addAttribute("message", msg);
 		return "result";
 	}

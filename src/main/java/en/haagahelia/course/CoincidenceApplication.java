@@ -32,7 +32,7 @@ public class CoincidenceApplication {
 			repository.save(new Stat(34, "consider themselves Orthodox", prepository.findOne((long) 2)));
 			repository.save(new Stat(38, "consider themselves Atheist", prepository.findOne((long) 2)));
 			repository.save(new Stat(34, "drink tea", prepository.findOne((long) 3)));
-			repository.save(new Stat(34, "drink vodka", prepository.findOne((long) 3)));
+			repository.save(new Stat(38, "drink vodka", prepository.findOne((long) 3)));
 
 			//Passwords are 'password'
 			urepository.save(new User("user", "$2a$04$38PefzLvW0TjewRTUBGlB.CAkQmxHVYgwxqT.GT3w/r6MPEV/K1Jq", "user@mail.fi", "USER"));

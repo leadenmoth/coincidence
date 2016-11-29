@@ -8,11 +8,17 @@
     </head>
     <body>
     	<div class="col-md-4 col-md-offset-4">
-    		<h1>Enter a percentage point or leave blank for random</h1>
+    		<h1>Choose a percentage point</h1>
+    		<p>(Hint: use 0 for random)</p>
 	        <form action="#" th:action="@{/index}" th:object="${message}" method="post">
-	            <div><label><input type="text" th:field="*{value}" class="form-control"/> %</label></div>
+	            <span style="white-space:nowrap">
+	            	<input type="range" id="percentRange" min="0" max="100" th:field="*{value}" oninput="percentText.value = percentRange.value"/>
+	            	<input type="text" id="percentText" size="3" th:field="*{value}" oninput="percentRange.value = percentText.value"/><label>%</label>
+	            </span>
 	            <div><input type="submit" value="Calculate" class="btn btn-success"/></div>
 	        </form>
+	        <p><a href="statlist.html">Show all</a></p>
         </div>
     </body>
 </html>
+

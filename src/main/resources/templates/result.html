@@ -8,7 +8,10 @@
     </head>
     <body>
     	<div class="col-md-4 col-md-offset-4">
-    		<p th:text="${message}" />
+    		<p th:text="${message.value} + '% of ' + ${message.msg1}" />
+    		<p>At the same time,</p>
+    		<p th:text="${message.value} + '% of ' + ${message.msg2}" />
+    		<p>Coincidence? I don't think so!</p>
         </div>
     </body>
 </html>
