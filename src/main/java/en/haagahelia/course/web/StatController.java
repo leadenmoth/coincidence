@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import en.haagahelia.course.domain.Stat;
 import en.haagahelia.course.domain.StatRepository;
+import en.haagahelia.course.domain.Message;
 import en.haagahelia.course.domain.PollRepository;
 
 @Controller
@@ -24,12 +25,12 @@ public class StatController {
 	
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public String statIndex(Model model) {
-		model.addAttribute("value");
+		model.addAttribute("message", new Message());
 		return "index";
 	}
 	@RequestMapping(value="/index", method=RequestMethod.POST)
-	public String statSubmit(@ModelAttribute int value, Model model) {
-		model.addAttribute("value", value);
+	public String statSubmit(@ModelAttribute Message msg, Model model) {
+		model.addAttribute("message", msg);
 		return "result";
 	}
 	
