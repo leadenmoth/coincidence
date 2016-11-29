@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Coincidence App</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    </head>
+    <body>
+    	<div class="col-md-4 col-md-offset-4">
+    		<h1>Enter a percentage point or leave blank for random</h1>
+	        <form th:action="@{/index}" th:object="${value}" method="post">
+	            <div><label><input type="text" name="value" class="form-control"/> %</label></div>
+	            <div><input type="submit" value="Calculate" class="btn btn-success"/></div>
+	        </form>
+        </div>
+    </body>
+</html>

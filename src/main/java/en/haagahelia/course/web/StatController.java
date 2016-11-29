@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,7 +24,13 @@ public class StatController {
 	
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public String statIndex(Model model) {
+		model.addAttribute("value");
 		return "index";
+	}
+	@RequestMapping(value="/index", method=RequestMethod.POST)
+	public String statSubmit(@ModelAttribute int value, Model model) {
+		model.addAttribute("value", value);
+		return "result";
 	}
 	
 	@RequestMapping(value="/statlist", method=RequestMethod.GET)
@@ -35,7 +42,7 @@ public class StatController {
 	//So that logging out and in again would open statlist. There are probably better ways of doing this, but...
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String redirect() {
-		return "redirect:/statlist";
+		return "redirect:/index";
 	}
 	
     @RequestMapping(value="/stats", method = RequestMethod.GET)
