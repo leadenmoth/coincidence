@@ -1,7 +1,7 @@
 package en.haagahelia.course.domain;
 
 import javax.persistence.*;
-
+//User class for authorization management
 @Entity
 public class User {
 
@@ -10,7 +10,7 @@ public class User {
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
-    // Username with unique constraint. Why do we need id if username is unique?
+    // Username with unique constraint. In principle we could do without a separate id field
     @Column(name = "username", nullable = false, unique = true)
     private String username;
 

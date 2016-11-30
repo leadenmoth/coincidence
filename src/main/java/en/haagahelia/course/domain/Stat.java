@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+//Stat object stores a single response to a question in a corresponding Poll
 @Entity
 public class Stat {
     @Id
