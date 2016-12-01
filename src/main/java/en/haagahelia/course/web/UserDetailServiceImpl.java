@@ -16,12 +16,14 @@ import en.haagahelia.course.domain.UserRepository;
 @Service
 public class UserDetailServiceImpl implements UserDetailsService  {
 	private final UserRepository repository;
-
+	
+	//Connect to user table in DB
 	@Autowired
 	public UserDetailServiceImpl(UserRepository userRepository) {
 		this.repository = userRepository;
 	}
-
+	
+	//Loads user password hash and role from DB by username
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
     {   

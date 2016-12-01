@@ -20,12 +20,13 @@ public class UserController {
 	@Autowired
     private UserRepository repository; 
 	
+	//Signup controller adds an empty SignupForm object to model to store form data in
     @RequestMapping(value = "signup")
     public String addStudent(Model model){
     	model.addAttribute("signupform", new SignupForm());
         return "signup";
     }	
-    
+    //This is javadoc notation that came default with this UserController implementation. It's used to document APIs
     /**
      * Create new user
      * Check if user already exists & form validation
@@ -38,14 +39,16 @@ public class UserController {
     public String save(@Valid @ModelAttribute("signupform") SignupForm signupForm, BindingResult bindingResult) {
     	if (!bindingResult.hasErrors()) { // validation errors
     		if (signupForm.getPassword().equals(signupForm.getPasswordCheck())) { // check password match		
-	    		String pwd = signupForm.getPassword();
+	    		//if passwords matched, run them through BCrypt
+    			String pwd = signupForm.getPassword();
 		    	BCryptPasswordEncoder bc = new BCryptPasswordEncoder();
 		    	String hashPwd = bc.encode(pwd);
-	
+		    	//Fill out a User object with form data
 		    	User newUser = new User();
 		    	newUser.setPasswordHash(hashPwd);
 		    	newUser.setUsername(signupForm.getUsername());
 		    	newUser.setRole("USER");
+		    	//Check if username exists
 		    	if (repository.findByUsername(signupForm.getUsername()) == null) { // Check if user exists
 		    		repository.save(newUser);
 		    	}

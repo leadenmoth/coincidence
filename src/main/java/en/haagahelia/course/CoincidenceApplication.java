@@ -20,6 +20,7 @@ public class CoincidenceApplication {
 	}
 	//For this demo our DB will only have 3 tables: users, polls (for simplicity, each poll only contains one question)
 	//and stats (answers with percentages linked to polls by a many-to-one relationship)
+	//Populate the in-memory database with CLR
 	@Bean
 	public CommandLineRunner demo(StatRepository repository, PollRepository prepository, UserRepository urepository) {
 		return (args) -> {

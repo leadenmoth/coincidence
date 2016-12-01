@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import en.haagahelia.course.web.StatController;
-
+//Standard test to see if all controllers load ok
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CoincidenceApplicationTests {

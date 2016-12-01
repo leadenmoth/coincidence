@@ -3,7 +3,7 @@ package en.haagahelia.course.domain;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
-
+//SignupForm class is used to store and validate data entered in sign-up form before it's saved to User class
 public class SignupForm {
     @NotEmpty
     @Size(min=5, max=30)
@@ -17,10 +17,12 @@ public class SignupForm {
     @Size(min=7, max=30)
     private String password = "";
 
+    //Re-typed password is stored separately for later comparison
     @NotEmpty
     @Size(min=7, max=30)
     private String passwordCheck = "";
-
+    
+    //Default role is user
     @NotEmpty
     private String role = "USER";
 
