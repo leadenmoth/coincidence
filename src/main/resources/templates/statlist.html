@@ -9,6 +9,7 @@
 	<p th:inline="text">Logged in as [[${#httpServletRequest.remoteUser}]]</p>
 	<form th:action="@{/logout}" method="post">
         <input type="submit" value="Sign Out"/>
+        <a href="index">Home</a>
     </form>
 	
 	<h1>Stats</h1>
@@ -22,7 +23,7 @@
 		</tr>
 		<tr th:each="stat : ${statlist}">
 			<td th:text="${stat.poll.question}"></td>
-			<td th:text="${stat.percent}"></td>
+			<td th:text="${stat.percent} + ' %'"></td>
 			<td th:text="${stat.poll.subject}"></td>
 			<td th:text="${stat.answer}"></td>
 			<!-- For some reason database implementation calls Role Authority -->
