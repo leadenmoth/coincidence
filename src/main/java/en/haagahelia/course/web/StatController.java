@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -106,6 +107,8 @@ public class StatController {
     }
     
     //Delete stat entry by id
+    //TODO method level security @Preauthorize - so only admins can delete
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
     public String deleteStat(@PathVariable("id") Long statId, Model model) {
     	repository.delete(statId);

@@ -20,19 +20,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
         http //non-authenticated users can access css folder, index and root redirect to index, signup and signup's save endpoint
-            .authorizeRequests().antMatchers("/css/**").permitAll() 
-	        .and()
-	        .authorizeRequests().antMatchers("/signup", "/saveuser", "/index", "/").permitAll()
-	        .and()
-            .authorizeRequests().anyRequest().authenticated()
+            .authorizeRequests()
+            	.antMatchers("/css/**", "/signup", "/saveuser", "/index", "/").permitAll() 
+	        	.antMatchers("/delete/**").hasAuthority("ADMIN")
+	        	.anyRequest().authenticated()
             .and()
-        .formLogin() //login page is /login, it can be accessed by unauthenticated users and after log-in they are redirected to statlist
-            .loginPage("/login")
-            .defaultSuccessUrl("/statlist")
-            .permitAll()
-            .and()
-        .logout()
-            .permitAll();
+	        .formLogin() //login page is /login, it can be accessed by unauthenticated users and after log-in they are redirected to statlist
+	            .loginPage("/login")
+	            .defaultSuccessUrl("/statlist")
+	            .permitAll()
+	            .and()
+	        .logout()
+	            .permitAll();
     }
 
     @Autowired
