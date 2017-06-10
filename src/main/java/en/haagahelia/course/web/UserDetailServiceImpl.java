@@ -27,8 +27,19 @@ public class UserDetailServiceImpl implements UserDetailsService  {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
     {   
+
+        //boolean enabled = true;
+        boolean accountNonExpired = true;
+        boolean credentialsNonExpired = true;
+        boolean accountNonLocked = true;
     	User currentUser = repository.findByUsername(username);
-        UserDetails user = new org.springframework.security.core.userdetails.User(username, currentUser.getPasswordHash(), 
+        UserDetails user = new org.springframework.security.core.userdetails.User(
+        		username, 
+        		currentUser.getPasswordHash(),
+        		currentUser.isEnabled(),
+        		accountNonExpired,
+        		credentialsNonExpired,
+        		accountNonLocked,
         		AuthorityUtils.createAuthorityList(currentUser.getRole()));
         return user;
     }   

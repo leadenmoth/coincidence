@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
 	        .formLogin() //login page is /login, it can be accessed by unauthenticated users and after log-in they are redirected to statlist
 	            .loginPage("/login")
-	            .defaultSuccessUrl("/statlist")
+	            .defaultSuccessUrl("/polllist")
 	            .permitAll()
 	            .and()
 	        .logout()

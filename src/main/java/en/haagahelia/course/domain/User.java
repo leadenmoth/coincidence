@@ -23,7 +23,12 @@ public class User {
     @Column(name = "role", nullable = false)
     private String role;
     
+    @Column(name = "enabled", nullable = false)
+    private boolean enabled;
+
     public User() {
+    	super();
+		this.enabled = false;
     }
 
 	public User(String username, String passwordHash, String email, String role) {
@@ -32,6 +37,7 @@ public class User {
 		this.passwordHash = passwordHash;
 		this.email = email;
 		this.role = role;
+
 	}
 
 	public Long getId() {
@@ -73,5 +79,15 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	
+	
 
 }

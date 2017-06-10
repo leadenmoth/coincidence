@@ -1,11 +1,13 @@
 package en.haagahelia.course.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -20,9 +22,23 @@ public class UserController {
 	@Autowired
     private UserRepository repository; 
 	
+	@RequestMapping(value="/userlist", method=RequestMethod.GET)
+	public String userList(Model model) {
+		model.addAttribute("userlist", repository.findAll());
+		return "userlist";
+	}
+	
+    //TODO method level security @Preauthorize - so only admins can delete
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping(value="/deleteuser/{id}", method = RequestMethod.GET)
+    public String deletePoll(@PathVariable("id") Long userId, Model model) {
+    	repository.delete(userId);
+    	return "redirect:/userlist";
+    }
+    
 	//Signup controller adds an empty SignupForm object to model to store form data in
     @RequestMapping(value = "signup")
-    public String addStudent(Model model){
+    public String addUser(Model model){
     	model.addAttribute("signupform", new SignupForm());
         return "signup";
     }	
