@@ -14,25 +14,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import en.haagahelia.course.domain.Message;
-import en.haagahelia.course.domain.Polls;
-import en.haagahelia.course.domain.PollsRepository;
+import en.haagahelia.course.domain.Poll;
+import en.haagahelia.course.domain.PollRepository;
 
 @Controller
-public class PollsController {
-	//Connect Polls table
+public class PollController {
+	//Connect Poll table
 	@Autowired
-	private PollsRepository repository;
+	private PollRepository repository;
 	
 	//Get request to index creates a new Message object and preps it for input of the form data
 	@RequestMapping(value="/index", method=RequestMethod.GET)
-	public String statIndex(Model model) {
+	public String pollIndex(Model model) {
 		model.addAttribute("message", new Message());
 		return "index";
 	}
 	
 	//Process form input from index. Find a pair of answers by user's or random value
 	@RequestMapping(value="/index", method=RequestMethod.POST)
-	public String statSubmit(@ModelAttribute Message msg, Model model) {
+	public String pollSubmit(@ModelAttribute Message msg, Model model) {
 		//Put user value into a temporary variable
 		int value = msg.getValue();
 		Random random = new Random();
@@ -48,7 +48,7 @@ public class PollsController {
 			msg.setMatch(false);
 		}
 		//Collect all fitting answers into a list
-		List<Polls> fittingPolls = repository.findByPercentage(value);
+		List<Poll> fittingPolls = repository.findByPercentage(value);
 		//Save new value, whatever it is, back to Message object
 		msg.setValue(value);
 		//Pick one random answer and save it into Message object
@@ -69,48 +69,47 @@ public class PollsController {
 		return "redirect:/index";
 	}
 	
-	//RESTful service to list all Polls
+	//RESTful service to list all Poll
     @RequestMapping(value="/polls", method = RequestMethod.GET)
-    public @ResponseBody List<Polls> pollsListRest() {	
-        return (List<Polls>) repository.findAll();
+    public @ResponseBody List<Poll> pollsListRest() {	
+        return (List<Poll>) repository.findAll();
     } 
 	
-    //RESTful service to find a Polls entry by id
+    //RESTful service to find a Poll entry by id
     @RequestMapping(value="/polls/{id}", method = RequestMethod.GET)
-    public @ResponseBody Polls findPollsRest(@PathVariable("id") Long pollsId) {	
+    public @ResponseBody Poll findPollsRest(@PathVariable("id") Long pollsId) {	
     	return repository.findOne(pollsId);
     } 
-    /*
-	//Get all values from the Polls repository to show on statlist page and also delete at will
-	@RequestMapping(value="/statlist", method=RequestMethod.GET)
-	public String statList(Model model) {
-		model.addAttribute("statlist", repository.findAll());
-		return "statlist";
+    
+	//Get all values from the Poll repository to show on polllist page and also delete at will
+	@RequestMapping(value="/polllist", method=RequestMethod.GET)
+	public String pollList(Model model) {
+		model.addAttribute("polllist", repository.findAll());
+		return "polllist";
 	}
     
-    //Create new Stat object and load Poll repository for addstat.html form to enter a new stat
+    //Create new Poll object and load Poll repository for addpoll.html form to enter a new poll
     @RequestMapping(value = "/add")
-    public String addStat(Model model){
-    	model.addAttribute("stat", new Stat());
-    	model.addAttribute("polls", prepository.findAll());
-        return "addstat";
+    public String addPoll(Model model){
+    	model.addAttribute("poll", new Poll());
+        return "addpoll";
     }     
     
-    //Save new Stat from addstat.html form to stat repository
+    //Save new Poll from addpoll.html form to poll repository
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveStat(Stat stat){
-        repository.save(stat);
-        return "redirect:statlist";
+    public String savePoll(Poll poll){
+        repository.save(poll);
+        return "redirect:polllist";
     }
     
-    //Delete stat entry by id
+    //Delete poll entry by id
     //TODO method level security @Preauthorize - so only admins can delete
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
-    public String deleteStat(@PathVariable("id") Long statId, Model model) {
-    	repository.delete(statId);
-    	return "redirect:/statlist";
-    }*/
+    public String deletePoll(@PathVariable("id") Long pollId, Model model) {
+    	repository.delete(pollId);
+    	return "redirect:/polllist";
+    }
     
     //Handle calls to login page
     @RequestMapping(value="/login")

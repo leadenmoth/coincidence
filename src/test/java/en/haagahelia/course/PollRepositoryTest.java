@@ -22,25 +22,25 @@ public class PollRepositoryTest {
     
     //Test that you can find a record by percent
     @Test
-    public void findBySubjectShouldReturnPoll() {
-        List<Poll> polls = repository.findBySubject("Russians");
-        assertThat(polls).hasSize(3);
-        assertThat(polls.get(0).getSource()).isEqualTo("Bloomberg");
+    public void findByPercentShouldReturnStat() {
+        List<Poll> stats = repository.findByPercentage(34);
+        assertThat(stats).hasSize(3);
+        assertThat(stats.get(0).getAnswer()).isEqualTo("own cats");
     }
     //Test that you can add a record to StatRepository
     @Test
-    public void createNewPoll() {
-    	Poll poll = new Poll("Do you approve the president?", "RFE/RL, 2016", "Russians");
+    public void createNewStat() {
+    	Poll poll = new Poll(86, "secretly disapprove the president", 2017);
     	repository.save(poll);
-    	System.out.println(repository.findOne(poll.getPollId()));
-    	assertThat(repository.findOne(poll.getPollId())).isNotNull();
+    	System.out.println(repository.findOne(poll.getId()));
+    	assertThat(repository.findOne(poll.getId())).isNotNull();
     } 
     //Test that you can delete a record from the repository
     @Test
     public void deleteBook() {
-        List<Poll> polls = repository.findBySubject("Russians");
-        repository.delete(polls.get(0).getPollId());
-        assertThat(repository.findOne(polls.get(0).getPollId()) == null);
+        List<Poll> poll = repository.findByPercentage(38);
+        repository.delete(poll.get(0).getId());
+        assertThat(repository.findOne(poll.get(0).getId()) == null);
         
     }
     

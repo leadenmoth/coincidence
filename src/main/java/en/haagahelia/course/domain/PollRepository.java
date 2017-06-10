@@ -2,10 +2,10 @@ package en.haagahelia.course.domain;
 
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
-import en.haagahelia.course.domain.Polls;
+import en.haagahelia.course.domain.Poll;
 
-//CrudRepository of Polls objects
-public interface PollsRepository extends CrudRepository<Polls, Long> {
+//CrudRepository of Poll objects
+public interface PollRepository extends CrudRepository<Poll, Long> {
 	//Search function to find polls by percent used in the main controller
-	List<Polls> findByPercentage(int percentage);
+	List<Poll> findByPercentage(int percentage);
 }

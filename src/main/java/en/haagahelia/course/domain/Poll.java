@@ -5,9 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-//Polls object stores a single response to a question in a corresponding Poll
+
+//Poll object stores a single response to a question in a corresponding Poll
 @Entity
-public class Polls {
+public class Poll {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -18,14 +19,14 @@ public class Polls {
     private int year;
 	
 		
-	public Polls(int percentage, String answer, int year) {
+	public Poll(int percentage, String answer, int year) {
 		super();
 		this.percentage = percentage;
 		this.answer = answer;		
 		this.year = year;
 	}
 
-	public Polls() {
+	public Poll() {
 
 	}
 
