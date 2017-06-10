@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Coincidence App: add stat</title>
+    <title>Coincidence App: add poll</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
 </head>
@@ -9,7 +9,7 @@
 	
 	<div class="col-md-4 col-md-offset-4">
 		<h1>Add poll</h1>
-		<form th:object="${stat}" th:action="@{save}" action="#" method="post">
+		<form th:object="${poll}" th:action="@{save}" action="#" method="post">
 		  	<label for="answer">Answer</label>
 			<input type="text" id="answer" th:field="*{answer}" class="form-control"/>
 
