@@ -15,11 +15,15 @@
 
 		  	<label for="percentage">Percentage</label>
 			<input type="text" id="percentage" th:field="*{percentage}" class="form-control"/>
+			
+			<label for="year">Year</label>
+			<input type="text" id="year" th:field="*{year}" class="form-control"/>
+			
 
-			<label for="polllist">Poll</label>
+			<!-- <label for="polllist">Poll</label>
 			<select id="polllist" th:field="*{poll}" class="form-control">
-				<option th:each="poll: ${polls}" th:value="${poll.pollId}" th:text="${poll.question}"></option>
-			</select>
+				<option th:each="poll: ${polls}" th:value="${poll.id}" th:text="${poll.question}"></option>
+			</select> -->
 
 			<input type="submit" value="Save" class="btn btn-success"></input>
 		</form>
