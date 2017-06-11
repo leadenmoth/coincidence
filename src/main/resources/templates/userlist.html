@@ -8,11 +8,12 @@
 <body>	
 	<p th:inline="text">Logged in as [[${#httpServletRequest.remoteUser}]]</p>
 	<form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out"/>
-        <a href="index">Home</a>
+        <input type="submit" value="Sign Out" class="btn btn-danger"/>
+        <a href="index" class="btn btn-success">Home</a>
+        <a href="polllist" class="btn btn-success">Polls</a>
     </form>
 	
-	<h1>Polls</h1>
+	<h1>Users</h1>
 	<table class="table table-striped">
 		<tr>
 			<th>Username</th>
@@ -24,10 +25,13 @@
 		<tr th:each="user : ${userlist}">
 			<td th:text="${user.username}"></td>
 			<td th:text="${user.email}"></td>
-			<td th:text="${user.role}"></td>
-			<td th:text="${user.enabled}"></td>
+			<td><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/u/elevate/{id}(id=${user.id})}" class="btn btn-success" th:text="${user.role}"></a></td>
+			<td><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/u/enable/{id}(id=${user.id})}" class="btn btn-success" th:text="${user.enabled}"></a></td>
 			<!-- For some reason database implementation calls Role Authority -->
-			<td><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/deleteuser/{id}(id=${user.id})}" class="btn btn-danger">Delete</a></td>
+			<td>
+				
+				<a sec:authorize="hasAuthority('ADMIN')" th:href="@{/u/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete</a>
+			</td>
 		</tr>	
 	</table>
 </body>

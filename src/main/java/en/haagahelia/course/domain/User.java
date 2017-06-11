@@ -79,6 +79,14 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	
+	public void flipRole() {
+		if (this.getRole().equals("USER")) {
+			this.setRole("ADMIN");
+		} else {
+			this.setRole("USER");
+		}
+	}
 
 	public boolean isEnabled() {
 		return enabled;
@@ -86,6 +94,10 @@ public class User {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+	
+	public void flipEnabled() {
+		this.setEnabled(!this.isEnabled());
 	}
 	
 	

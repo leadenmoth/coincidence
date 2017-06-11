@@ -22,7 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http //non-authenticated users can access css folder, index and root redirect to index, signup and signup's save endpoint
             .authorizeRequests()
             	.antMatchers("/css/**", "/signup", "/saveuser", "/index", "/").permitAll() 
-	        	.antMatchers("/delete/**").hasAuthority("ADMIN")
+	        	.antMatchers("/delete/**", "/u/**").hasAuthority("ADMIN")
 	        	.anyRequest().authenticated()
             .and()
 	        .formLogin() //login page is /login, it can be accessed by unauthenticated users and after log-in they are redirected to statlist

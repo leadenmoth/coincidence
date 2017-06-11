@@ -30,9 +30,27 @@ public class UserController {
 	
     //TODO method level security @Preauthorize - so only admins can delete
     @PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping(value="/deleteuser/{id}", method = RequestMethod.GET)
-    public String deletePoll(@PathVariable("id") Long userId, Model model) {
+    @RequestMapping(value="/u/delete/{id}", method = RequestMethod.GET)
+    public String deleteUser(@PathVariable("id") Long userId, Model model) {
     	repository.delete(userId);
+    	return "redirect:/userlist";
+    }
+    
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping(value="/u/enable/{id}", method = RequestMethod.GET)
+    public String enableUser(@PathVariable("id") Long userId, Model model) {
+    	User user = repository.findOne(userId);
+    	user.flipEnabled();
+    	repository.save(user);
+    	return "redirect:/userlist";
+    }
+    
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping(value="/u/elevate/{id}", method = RequestMethod.GET)
+    public String elevateUser(@PathVariable("id") Long userId, Model model) {
+    	User user = repository.findOne(userId);
+    	user.flipRole();
+    	repository.save(user);
     	return "redirect:/userlist";
     }
     

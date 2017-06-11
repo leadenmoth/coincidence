@@ -8,8 +8,10 @@
 <body>	
 	<p th:inline="text">Logged in as [[${#httpServletRequest.remoteUser}]]</p>
 	<form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out"/>
-        <a href="index">Home</a>
+        <input type="submit" value="Sign Out" class="btn btn-danger"/>
+        <a href="index" class="btn btn-success">Home</a>
+        <a href="userlist" class="btn btn-success">Users</a>
+        <a href="/add" class="btn btn-success">Add poll</a>
     </form>
 	
 	<h1>Polls</h1>
@@ -26,6 +28,6 @@
 			<td><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/delete/{id}(id=${poll.id})}" class="btn btn-danger">Delete</a></td>
 		</tr>	
 	</table>
-	<a href="/add" class="btn btn-success">Add poll</a>
+	
 </body>
 </html>
