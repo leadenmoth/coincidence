@@ -3,30 +3,33 @@
 <head>
     <title>Coincidence App: Sign up</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+	<link type="text/css" rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+	<!-- Theme CSS -->
+	<link href="../static/css/grayscale.css" th:href="@{grayscale.css}" rel="stylesheet">
+    <link href="../static/css/grayscale.min.css" th:href="@{grayscale.css}" rel="stylesheet" />
 </head>
 <body>
      <div class="col-md-4 col-md-offset-4">
      	<h1>Sign up</h1>
 		<form th:object="${signupform}" th:action="@{/saveuser}" action="#" method="post">
-			<div>
+			<div class="form-group">
 				<label> Username:<input type="text" th:field="*{username}" class="form-control"/></label>
-				<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>	
+				<p class="has-errors" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>	
 			</div>
-			<div>
+			<div class="form-group">
 				<label> E-mail:<input type="text" th:field="*{email}" class="form-control"/></label>
-				<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">E-mail Error</p>	
+				<p class="has-errors" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">E-mail Error</p>	
 			</div>
-			<div>
+			<div class="form-group">
 				<label> Password:<input type="password" th:field="*{password}" class="form-control"/></label>
-				<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>	
+				<p class="has-errors" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>	
 			</div>
-			<div>
+			<div class="form-group">
 				<label> Re-type password: <input type="password" th:field="*{passwordCheck}" class="form-control"/></label>
-				<p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>	
+				<p class="has-errors" th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>	
 			</div>
 			
-			<input type="submit" class="btn btn-success" value="Signup"></input>		
+			<input type="submit" class="btn btn-default btn-lg" value="Sign up">		
 		</form>
 	</div>
 </body>

@@ -4,21 +4,27 @@
     <title>Coincidence App: add poll</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+    <!-- Theme CSS -->
+	<link href="../static/css/grayscale.css" th:href="@{grayscale.css}" rel="stylesheet">
+    <link href="../static/css/grayscale.min.css" th:href="@{grayscale.min.css}" rel="stylesheet" />
 </head>
 <body>
 	
 	<div class="col-md-4 col-md-offset-4">
 		<h1>Add poll</h1>
 		<form th:object="${poll}" th:action="@{save}" action="#" method="post">
-		  	<label for="answer">Answer</label>
-			<input type="text" id="answer" th:field="*{answer}" class="form-control"/>
-
-		  	<label for="percentage">Percentage</label>
-			<input type="text" id="percentage" th:field="*{percentage}" class="form-control"/>
-			
+		  	<div class="form-group">
+		  		<label for="answer">Answer</label>
+				<input type="text" id="answer" th:field="*{answer}" class="form-control"/>
+	  		
+	  		<div class="form-group">
+		  		<label for="percentage">Percentage</label>
+				<input type="text" id="percentage" th:field="*{percentage}" class="form-control"/>
+			</div>
+			<div class="form-group">
 			<label for="year">Year</label>
 			<input type="text" id="year" th:field="*{year}" class="form-control"/>
-			
+			</div>
 
 			<!-- <label for="polllist">Poll</label>
 			<select id="polllist" th:field="*{poll}" class="form-control">
