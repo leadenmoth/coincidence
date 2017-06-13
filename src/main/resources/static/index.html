@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <meta name="description" content=""></meta>
+    <meta name="author" content=""></meta>
 
     <title>Coincidence</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
 
     <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"></link>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"></link>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"></link>
 
     <!-- Theme CSS -->
-    <link href="css/grayscale.min.css" rel="stylesheet">
+    <link href="css/grayscale.css" rel="stylesheet" />
+    <link href="css/grayscale.min.css" rel="stylesheet" />
     
     <!-- RangeSlider CSS -->
-    <link href="css/rangeslider.css" rel="stylesheet">
+    <link href="css/rangeslider.css" rel="stylesheet" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,7 +60,7 @@
                         <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#login">Login</a>
+                        <a class="page-scroll" href="#login" data-toggle="modal" data-target="#loginForm">Login</a>
                     </li>
                 </ul>
             </div>
@@ -67,6 +68,20 @@
         </div>
         <!-- /.container -->
     </nav>
+    
+    <!-- Login Form -->
+    <div class="modal custom fade" id="loginForm" role="dialog" aria-hidden="true">
+    	<div class="modal-dialog container loginform">
+    		<div class="text-center">
+     			<form class="form-signin"><button type="button" class="btn btn-sm btn-default pull-right" data-dismiss="modal">&times;</button>         
+      				<h2 class="form-signin-heading">Please login</h2> 
+      				<input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" /><br />
+      				<input type="password" class="form-control" name="password" placeholder="Password" required=""/><br />
+      			<button class="btn btn-lg btn-default" type="submit">Login</button> <a class="btn btn-lg btn-default" href="signup.html" >Sign up</a> 
+    		</form>
+		</div>
+	</div>
+  </div>
 
     <!-- Intro Header -->
     <header class="intro">
@@ -75,10 +90,10 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
 						<p class="intro-text">Here's a fun fact about Russian people:</p>
-                       	<p class="intro-text" id="getResultDiv">86% blah<br>and<br>blah blah</p>
+                       	<p class="intro-text" id="getResultDiv">86% blah<br />and<br />blah blah</p>
                         <h1 class="brand-heading">Coincidence?</h1>
                         <h2>I don't think so!</h2>
-                        <p><img src="img/kiselyov.jpg" width="300"></p>
+                        <p><img src="img/kiselyov.jpg" width="300" /></p>
                         <a href="#lookup" class="btn btn-default btn-lg page-scroll">Get another fun fact</a>
                     </div>
                 </div>
@@ -93,7 +108,7 @@
                 <h2>Choose your destiny</h2>
                 <p>Pick a number or let us choose for you.</p>
                 <div id="getDiv">
-                		<form id="numberForm"><input type="range" min="0" max="100" step="1" value="50" class="rangeslider" id="chosenNumber">
+                		<form id="numberForm"><input type="range" min="0" max="100" step="1" value="50" class="rangeslider" id="chosenNumber" /><br />
                 		<p><a href="#page-top" id="askBtn" class="btn btn-default btn-lg page-scroll">Tell me something funny</a> <a href="#page-top" id="randomBtn" class="btn btn-default btn-lg page-scroll">I'm feeling lucky</a></p></form>      
                 	</div>
                  
@@ -107,7 +122,7 @@
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>About this project</h2>
-                    <p>Here goes copyright etc etc.</p>
+                    <p>Poll data collected by Esquire magazine.</p>
                 </div>
             </div>
         </div>
@@ -121,36 +136,35 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="vendor/jquery/jquery.js"></script>
+    <script type="application/javascript" src="vendor/jquery/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script type="application/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="js/grayscale.min.js"></script>
+    <script type="application/javascript" src="js/grayscale.min.js"></script>
     
     <!-- Get&Post JavaScript -->
-    <script src="js/getrequest.js"></script>
+    <script type="application/javascript" src="js/getrequest.js"></script>
+    <script type="application/javascript" src="js/postrequest.js"></script>
     
     <!-- RangeSlider.js -->
-    <script src="js/rangeslider.js"></script>
-	<script src="js/rangeslider.min.js"></script>
+    <script type="application/javascript" src="js/rangeslider.js"></script>
+	<script type="application/javascript" src="js/rangeslider.min.js"></script>
 	<script>
-    	// Initialize a new plugin instance for all
-    	// e.g. $('input[type="range"]') elements.
-    	$('input[type="range"]').rangeslider();
-
-    	// Destroy all plugin instances created from the
-    	// e.g. $('input[type="range"]') elements.
-    	//$('input[type="range"]').rangeslider('destroy');
-
-    	// Update all rangeslider instances for all
-    	// e.g. $('input[type="range"]') elements.
-    	// Usefull if you changed some attributes e.g. `min` or `max` etc.
-    	$('input[type="range"]').rangeslider('update', true);
+		//Initializing RangeSlider
+    	$('input[type="range"]').rangeslider({
+    		polyfill : false,
+    		onInit : function() {
+        		this.output = $( '<div class="range-output" />' ).insertBefore( this.$range ).html( this.$element.val() );
+    },
+    		onSlide : function( position, value ) {
+				this.output.html( value );
+    }
+});
 	</script>
 
 </body>
