@@ -21,7 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http //non-authenticated users can access css folder, index and root redirect to index, signup and signup's save endpoint
             .authorizeRequests()
-            	.antMatchers("/css/**", "/signup", "/saveuser", "/index", "/").permitAll() 
+            	.antMatchers("/css/**", "/js/**", "/img/**", "/vendor/**", "/signup", "/saveuser", "/index", "/").permitAll() 
 	        	.antMatchers("/delete/**", "/u/**").hasAuthority("ADMIN")
 	        	.anyRequest().authenticated()
             .and()

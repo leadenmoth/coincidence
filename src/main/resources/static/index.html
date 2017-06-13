@@ -3,27 +3,27 @@
 
 <head>
 
-    <meta charset="utf-8"></meta>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-    <meta name="description" content=""></meta>
-    <meta name="author" content=""></meta>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
     <title>Coincidence</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"></link>
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"></link>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"></link>
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
     <!-- Theme CSS -->
-    <link href="css/grayscale.min.css" rel="stylesheet"></link>
+    <link href="css/grayscale.min.css" rel="stylesheet">
     
     <!-- RangeSlider CSS -->
-    <link href="css/rangeslider.css" rel="stylesheet"></link>
+    <link href="css/rangeslider.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,7 +59,7 @@
                         <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#login" data-toggle="modal" data-target="#loginForm">Login</a>
+                        <a class="page-scroll" href="#login">Login</a>
                     </li>
                 </ul>
             </div>
@@ -67,23 +67,6 @@
         </div>
         <!-- /.container -->
     </nav>
-    
-    <!-- Login Form -->
-    <div class="modal fade" id="loginForm" role="dialog" aria-hidden="true">
-    	<div class="modal-dialog">
-    		<div class="modal-content">
-     			<form class="form-signin">       
-      				<h2 class="form-signin-heading">Please login</h2>
-      				<input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-      				<input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
-      				<label class="checkbox">
-        				<input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" /> Remember me
-      				</label>
-      			<button class="btn btn-lg btn-default btn-block" type="submit">Login</button> <button type="button" class="btn btn-lg btn-default btn-block" data-dismiss="modal">Close</button>  
-    		</form>
-		</div>
-	</div>
-  </div>
 
     <!-- Intro Header -->
     <header class="intro">
@@ -92,10 +75,10 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
 						<p class="intro-text">Here's a fun fact about Russian people:</p>
-                       	<p class="intro-text" id="getResultDiv">86% blah<br />and<br />blah blah</p>
+                       	<p class="intro-text" id="getResultDiv">86% blah<br>and<br>blah blah</p>
                         <h1 class="brand-heading">Coincidence?</h1>
                         <h2>I don't think so!</h2>
-                        <p><img src="img/kiselyov.jpg" width="300" /></p>
+                        <p><img src="img/kiselyov.jpg" width="300"></p>
                         <a href="#lookup" class="btn btn-default btn-lg page-scroll">Get another fun fact</a>
                     </div>
                 </div>
@@ -110,7 +93,7 @@
                 <h2>Choose your destiny</h2>
                 <p>Pick a number or let us choose for you.</p>
                 <div id="getDiv">
-                		<form id="numberForm"><input type="range" min="0" max="100" step="1" value="50" class="rangeslider" id="chosenNumber" />
+                		<form id="numberForm"><input type="range" min="0" max="100" step="1" value="50" class="rangeslider" id="chosenNumber">
                 		<p><a href="#page-top" id="askBtn" class="btn btn-default btn-lg page-scroll">Tell me something funny</a> <a href="#page-top" id="randomBtn" class="btn btn-default btn-lg page-scroll">I'm feeling lucky</a></p></form>      
                 	</div>
                  
@@ -138,24 +121,23 @@
     </footer>
 
     <!-- jQuery -->
-    <script type="application/javascript" src="vendor/jquery/jquery.js"></script>
+    <script src="vendor/jquery/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script type="application/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
     <!-- Theme JavaScript -->
-    <script type="application/javascript" src="js/grayscale.min.js"></script>
+    <script src="js/grayscale.min.js"></script>
     
     <!-- Get&Post JavaScript -->
-    <script type="application/javascript" src="js/getrequest.js"></script>
-    <script type="application/javascript" src="js/postrequest.js"></script>
+    <script src="js/getrequest.js"></script>
     
     <!-- RangeSlider.js -->
-    <script type="application/javascript" src="js/rangeslider.js"></script>
-	<script type="application/javascript" src="js/rangeslider.min.js"></script>
+    <script src="js/rangeslider.js"></script>
+	<script src="js/rangeslider.min.js"></script>
 	<script>
     	// Initialize a new plugin instance for all
     	// e.g. $('input[type="range"]') elements.
