@@ -83,7 +83,8 @@ public class PollController {
 	//Get all values from the Poll repository to show on polllist page and also delete at will
 	@RequestMapping(value="/polllist", method=RequestMethod.GET)
 	public String pollList(Model model) {
-		model.addAttribute("polllist", repository.findAll());
+		model.addAttribute("polllist", repository.findAllByOrderByIdDesc());
+		model.addAttribute("poll", new Poll());
 		return "polllist";
 	}
     

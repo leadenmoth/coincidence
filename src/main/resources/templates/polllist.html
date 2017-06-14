@@ -7,19 +7,63 @@
     <!-- Theme CSS -->
 	<link href="../static/css/grayscale.css" th:href="@{css/grayscale.css}" rel="stylesheet" />
     <link href="../static/css/grayscale.min.css" th:href="@{css/grayscale.min.css}" rel="stylesheet" />
+    
+    <!-- Override theme -->
+    <style>
+    .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+	  background-color: #00B4FF;
+	}
+    
+    </style>
 </head>
 <body>	
-	<p th:inline="text">Logged in as [[${#httpServletRequest.remoteUser}]]</p>
-	<form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out" class="btn btn-danger"/>
-        <a href="index" class="btn btn-success">Home</a>
-        <a href="userlist" class="btn btn-success">Users</a>
-        <a href="/add" class="btn btn-success">Add poll</a>
-    </form>
+	<h6 th:inline="text" class="text-right">Logged in as [[${#httpServletRequest.remoteUser}]]</h6>
+	<nav class="nav pull-right" role="navigation">
+		<ul class="list-inline">
+			<li>
+				<form th:action="@{/logout}" method="post">
+		        <input type="submit" value="Sign Out" class="btn btn-danger"/></form>
+		    </li>
+	        <li><a href="index" class="btn btn-default">Home</a></li>
+	        <li><a href="userlist" class="btn btn-default">Users</a></li>
+	        <li><a href="#addForm" class="btn btn-default" data-toggle="modal" data-target="#addForm">Add poll</a></li>
+	    </ul>
+   	</nav>
     
+        <!-- Login Form -->
+    <div class="modal custom fade" id="addForm" role="dialog" aria-hidden="true">
+    	<div class="modal-dialog container loginform">
+    		<div class="text-center">
+     			<form class="form-signin" th:object="${poll}" th:action="@{save}" action="#" method="post"><button type="button" class="btn btn-sm btn-default pull-right" data-dismiss="modal">&times;</button>         
+      				<h2 class="form-signin-heading">Add new poll result</h2>	      			
+					<div class="form-group">
+				  		<label for="answer">Answer</label>
+				  		<input type="text" id="answer" th:field="*{answer}" class="form-control" name="answer" placeholder="Answer" required="" autofocus="" />
+			  		</div>
+			  		<div class="form-group">
+		  			<label for="percentage">Percentage</label>
+			  			<input type="text" id="percentage" th:field="*{percentage}" class="form-control" name="percentage" placeholder="Percentage" required="" value=""/>
+					</div>
+					<div class="form-group">
+						<label for="year">Year</label>
+						<input type="text" id="year" th:field="*{year}" class="form-control" name="year" placeholder="Year" required="" value=""/>
+					</div>
+					<input class="btn btn-lg btn-default" type="submit" value="Save"></input> 
+	    		</form>
+			</div>
+		</div>
+	  </div>
+    
+	<div class="row">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-4"><h1>Polls</h1></div>
+	<div class="col-sm-4"></div>
+	</div>
 	
-	<h1>Polls</h1>
-	<table class="table table-responsive container">
+	<div class="row">
+	<div class="col-sm-2"></div>
+	<div class="col-sm-8">
+	<table class="table table-responsive container table-hover">
 		<tr>
 			<th>Percentage</th>
 			<th>Answer</th>
@@ -32,6 +76,19 @@
 			<td><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/delete/{id}(id=${poll.id})}" class="btn btn-danger">Delete</a></td>
 		</tr>	
 	</table>
-	
+	</div>
+	<div class="col-sm-2"></div>
+	</div>
+	<!-- jQuery -->
+    <script type="application/javascript" src="vendor/jquery/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script type="application/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script type="application/javascript" src="js/grayscale.min.js"></script>
 </body>
 </html>

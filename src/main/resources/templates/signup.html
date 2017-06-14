@@ -9,24 +9,24 @@
     <link href="../static/css/grayscale.min.css" th:href="@{css/grayscale.css}" rel="stylesheet" />
 </head>
 <body>
-     <div class="col-md-4 col-md-offset-4">
-     	<h1>Sign up</h1>
+     <div class="col-md-4 col-md-offset-4 container">
+     	<h1 class="brand-heading">Sign up</h1>
 		<form th:object="${signupform}" th:action="@{/saveuser}" action="#" method="post">
 			<div class="form-group">
 				<label> Username:<input type="text" th:field="*{username}" class="form-control"/></label>
-				<p class="has-errors" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>	
+				<h6 class="has-errors" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</h6>	
 			</div>
 			<div class="form-group">
 				<label> E-mail:<input type="text" th:field="*{email}" class="form-control"/></label>
-				<p class="has-errors" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">E-mail Error</p>	
+				<h6 class="has-errors" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">E-mail Error</h6>	
 			</div>
 			<div class="form-group">
 				<label> Password:<input type="password" th:field="*{password}" class="form-control"/></label>
-				<p class="has-errors" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>	
+				<h6 class="has-errors" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</h6>	
 			</div>
 			<div class="form-group">
 				<label> Re-type password: <input type="password" th:field="*{passwordCheck}" class="form-control"/></label>
-				<p class="has-errors" th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>	
+				<h6 class="has-errors" th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</h6>	
 			</div>
 			
 			<input type="submit" class="btn btn-default btn-lg" value="Sign up" />		

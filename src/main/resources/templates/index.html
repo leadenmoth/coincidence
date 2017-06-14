@@ -46,12 +46,21 @@
                     Menu <i class="fa fa-bars"></i>
                 </button>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
+            					
+			<!-- Google Translate button -->
+            <div id="google_translate_element" class="pull-left"></div>
+                    	<script type="text/javascript">
+							function googleTranslateElementInit() {
+							  new google.translate.TranslateElement({pageLanguage: 'ru', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
+							}
+						</script>
+						<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+						
+			<!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
+					<li class="hidden">
                         <a href="#page-top"></a>
                     </li>
                     <li>
@@ -65,15 +74,7 @@
                         	<a sec:authorize="hasAnyAuthority('USER','ADMIN')" class="page-scroll" href="/polllist">List</a>
                         
                     </li>
-                    <li>
-                    	<div id="google_translate_element"></div>
-                    	<script type="text/javascript">
-							function googleTranslateElementInit() {
-							  new google.translate.TranslateElement({pageLanguage: 'ru', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
-							}
-						</script>
-						<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-					</li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -134,7 +135,7 @@
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>About this project</h2>
-                    <p>Poll data collected by Esquire magazine.</p>
+                    <p>Часть представленных данных собрана журналистами российского Esquire для публикации "Пора и часть знать" (2016) по следующим источникам: опросы ВЦИОМ, Фонда «Общественное мнение» и «Левада-Центра» за 2006–16 годы; AIPM, B2B International, BCG, DWBJV, ESET, HeadHunter, Ikea, Ipsos, Joblist.ru, Kelly Services, Mail.Ru, Mastercard, Millward Brown, Misperceiving Inequality, Nielsen, Online Market Intelligence, Skyscanner, Superjob.ru, TNS Gallup, Transparency International, «100 дорог», Институт полиомиелита и вирусных энцефалитов им. Чумакова, Институт развития избирательной системы РФ, Институт социологии РАН, исследовательская служба «Среда», исследовательский холдинг «Ромир», «Лаборатория Касперского», «Литрес», Минздравсоцразвития, Минпромторг, Минтруда, Московский государственный университет, Национальное агентство финансовых исследований, «НВД-недвижимость», НИИ питания, НИУ «Высшая школа экономики», НП «Эксперт», «Росгосстрах», Роспотребнадзор, Росздравнадзор, Российская академия народного хозяйства и государственного управления, Росстат, Федерация еврейских общин России, Финансовый университет при правительстве РФ, Центр исследования массового электронного сознания, Центробанк.</p>
                 </div>
             </div>
         </div>
@@ -143,7 +144,7 @@
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; Artem Astashenkov and Olga Vorozheykina, 2016</p>
+            <p>Copyright &copy; Artem Astashenkov and Olga Vorozheykina, 2017</p>
         </div>
     </footer>
 
