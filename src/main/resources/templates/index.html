@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
 
@@ -60,8 +61,19 @@
                         <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#login" data-toggle="modal" data-target="#loginForm">Login</a>
+                        	<a sec:authorize="!hasAnyAuthority('USER','ADMIN')" class="page-scroll" href="#login" data-toggle="modal" data-target="#loginForm">Login</a>
+                        	<a sec:authorize="hasAnyAuthority('USER','ADMIN')" class="page-scroll" href="/polllist">List</a>
+                        
                     </li>
+                    <li>
+                    	<div id="google_translate_element"></div>
+                    	<script type="text/javascript">
+							function googleTranslateElementInit() {
+							  new google.translate.TranslateElement({pageLanguage: 'ru', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
+							}
+						</script>
+						<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+					</li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -73,9 +85,9 @@
     <div class="modal custom fade" id="loginForm" role="dialog" aria-hidden="true">
     	<div class="modal-dialog container loginform">
     		<div class="text-center">
-     			<form class="form-signin"><button type="button" class="btn btn-sm btn-default pull-right" data-dismiss="modal">&times;</button>         
+     			<form class="form-signin" th:action="@{/login}" method="post"><button type="button" class="btn btn-sm btn-default pull-right" data-dismiss="modal">&times;</button>         
       				<h2 class="form-signin-heading">Please login</h2> 
-      				<input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" /><br />
+      				<input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" /><br />
       				<input type="password" class="form-control" name="password" placeholder="Password" required=""/><br />
       			<button class="btn btn-lg btn-default" type="submit">Login</button> <a class="btn btn-lg btn-default" href="signup.html" >Sign up</a> 
     		</form>
@@ -90,7 +102,7 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
 						<p class="intro-text">Here's a fun fact about Russian people:</p>
-                       	<p class="intro-text" id="getResultDiv">86% blah<br />and<br />blah blah</p>
+                       	<p class="intro-text" id="getResultDiv">86% россиян не смотрят новые фильмы в кинотеатрах<br />***<br />86% россиян не говорят ни на одном иностранном языке</p>
                         <h1 class="brand-heading">Coincidence?</h1>
                         <h2>I don't think so!</h2>
                         <p><img src="img/kiselyov.jpg" width="300" /></p>
@@ -108,9 +120,9 @@
                 <h2>Choose your destiny</h2>
                 <p>Pick a number or let us choose for you.</p>
                 <div id="getDiv">
-                		<form id="numberForm"><input type="range" min="1" max="99" step="1" value="50" class="rangeslider" id="chosenNumber" /><br />
-                		<p><a href="#page-top" id="askBtn" class="btn btn-default btn-lg page-scroll">Tell me something funny</a> <a href="#page-top" id="randomBtn" class="btn btn-default btn-lg page-scroll">I'm feeling lucky</a></p></form>      
-                	</div>
+               		<form id="numberForm"><input type="range" min="1" max="99" step="1" value="50" class="rangeslider" id="chosenNumber" /><br />
+               		<p><a href="#page-top" id="askBtn" class="btn btn-default btn-lg page-scroll">Tell me something funny</a> <a href="#page-top" id="randomBtn" class="btn btn-default btn-lg page-scroll">I'm feeling lucky</a></p></form>      
+               	</div>
                  
             </div>
         </div>

@@ -27,11 +27,8 @@ $( document ).ready(function() {
     	
     	// DO POST
     	$.ajax({
-			type : "POST",
-			contentType : "application/json",
-			url : url,
-			data : JSON.stringify(formData),
-			dataType : 'json',
+			type : "GET",
+			url : "/message/" + value,
 			success : function(formData) {
 				if(formData){
 				console.log("Post successful! Value: " + formData);

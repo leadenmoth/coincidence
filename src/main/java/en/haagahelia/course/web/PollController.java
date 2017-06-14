@@ -25,16 +25,16 @@ public class PollController {
 	
 	//Get request to index creates a new Message object and preps it for input of the form data
 	@RequestMapping(value="/index", method=RequestMethod.GET)
-	public String pollIndex(Model model) {
-		model.addAttribute("message", new Message());
+	public String pollIndex() {
 		return "index";
 	}
 	
-	//Process form input from index. Find a pair of answers by user's or random value
-	@RequestMapping(value="/index", method=RequestMethod.POST)
-	public String pollSubmit(@ModelAttribute Message msg, Model model) {
+	//Get random answers from the database
+	@RequestMapping(value="/message/{pc}", method=RequestMethod.GET)
+	public @ResponseBody Message getMessage(@PathVariable("pc") int percent) {
 		//Put user value into a temporary variable
-		int value = msg.getValue();
+		Message msg = new Message();
+		int value = percent;
 		Random random = new Random();
 		//If we can't find a pair of answers with that value, we randomize the value until we can
 		while (repository.findByPercentage(value).size() < 2)
@@ -42,14 +42,14 @@ public class PollController {
 			value = random.nextInt(101);
 		}
 		//Check if we had to use a random value so we can notify the user
-		if (msg.getValue() == value) {
+		if (percent == value) {
 			msg.setMatch(true);
 		} else {
 			msg.setMatch(false);
 		}
 		//Collect all fitting answers into a list
 		List<Poll> fittingPolls = repository.findByPercentage(value);
-		//Save new value, whatever it is, back to Message object
+		//Save new value, whatever it is, to Message object
 		msg.setValue(value);
 		//Pick one random answer and save it into Message object
 		int chosenPollsIndex = random.nextInt(fittingPolls.size());
@@ -58,10 +58,9 @@ public class PollController {
 		fittingPolls.remove(chosenPollsIndex);
 		chosenPollsIndex = random.nextInt(fittingPolls.size());
 		msg.setMsg2(fittingPolls.get(chosenPollsIndex).getAnswer());
-		//Save Message object to model for result page to call
-		model.addAttribute("message", msg);
-		return "result";
+		return msg;
 	}
+
 	
 	//This *should* redirect root requests to index
 	@RequestMapping(value="/", method=RequestMethod.GET)
@@ -69,7 +68,7 @@ public class PollController {
 		return "redirect:/index";
 	}
 	
-	//RESTful service to list all Poll
+	//RESTful service to list all Polls
     @RequestMapping(value="/polls", method = RequestMethod.GET)
     public @ResponseBody List<Poll> pollsListRest() {	
         return (List<Poll>) repository.findAll();
