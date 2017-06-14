@@ -82,6 +82,7 @@ public class UserController {
 		    	newUser.setPasswordHash(hashPwd);
 		    	newUser.setUsername(signupForm.getUsername());
 		    	newUser.setRole("USER");
+		    	newUser.setEmail(signupForm.getEmail());
 		    	//Check if username exists
 		    	if (repository.findByUsername(signupForm.getUsername()) == null) { // Check if user exists
 		    		repository.save(newUser);
@@ -99,7 +100,7 @@ public class UserController {
     	else {
     		return "signup";
     	}
-    	return "redirect:/login";    	
+    	return "redirect:/index";    	
     }    
     
 }

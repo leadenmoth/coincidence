@@ -25,7 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	        	.antMatchers("/delete/**", "/u/**").hasAuthority("ADMIN")
 	        	.anyRequest().authenticated()
             .and()
-	        .formLogin() //login page is /login, it can be accessed by unauthenticated users and after log-in they are redirected to statlist
+	        .formLogin() //login page is /login, it can be accessed by unauthenticated users and after log-in they are redirected to polllist
 	            .loginPage("/login")
 	            .defaultSuccessUrl("/polllist")
 	            .permitAll()
