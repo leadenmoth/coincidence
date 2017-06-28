@@ -19,6 +19,8 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"></link>
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"></link>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"></link>
+    <link href="https://zona.media/font/Graphik-Regular-Cy-Web.woff:400,700"  rel="stylesheet" type="text/css"></link>
+    <link href="https://zona.media/font/Graphik-Bold-Cy-Web.woff:400,700"  rel="stylesheet" type="text/css"></link>
 
     <!-- Theme CSS -->
     <link href="css/grayscale.css" rel="stylesheet" />
@@ -37,24 +39,23 @@
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-
+<div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'ru', includedLanguages: 'en'}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                        
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    Menu <i class="fa fa-bars"></i>
+                    Меню <i class="fa fa-bars"></i>
                 </button>
             </div>
             					
-			<!-- Google Translate button -->
-            <div id="google_translate_element" class="pull-left"></div>
-                    	<script type="text/javascript">
-							function googleTranslateElementInit() {
-							  new google.translate.TranslateElement({pageLanguage: 'ru', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
-							}
-						</script>
-						<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
+        
 						
 			<!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
@@ -64,13 +65,13 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#lookup">Try me</a>
+                        <a class="page-scroll" href="#lookup">Попробовать</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#about">О проекте</a>
                     </li>
                     <li>
-                        	<a sec:authorize="!hasAnyAuthority('USER','ADMIN')" class="page-scroll" href="#login" data-toggle="modal" data-target="#loginForm">Login</a>
+                        	<a sec:authorize="!hasAnyAuthority('USER','ADMIN')" class="page-scroll" href="#login" data-toggle="modal" data-target="#loginForm">Войти</a>
                         	<a sec:authorize="hasAnyAuthority('USER','ADMIN')" class="page-scroll" href="/polllist">List</a>
                         
                     </li>
@@ -102,12 +103,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-						<p class="intro-text">Here's a fun fact about Russian people:</p>
+						<p class="intro-text">Невероятно, но факт:</p>
                        	<p class="intro-text" id="getResultDiv">86% россиян не смотрят новые фильмы в кинотеатрах<br />***<br />86% россиян не говорят ни на одном иностранном языке</p>
-                        <h1 class="brand-heading">Coincidence?</h1>
-                        <h2>I don't think so!</h2>
+                        <h1 class="brand-heading">Совпадение?</h1>
+                        <h2>Не думаю!</h2>
                         <p><img src="img/kiselyov.jpg" width="300" /></p>
-                        <a href="#lookup" class="btn btn-default btn-lg page-scroll">Get another fun fact</a>
+                        <a href="#lookup" class="btn btn-default btn-lg page-scroll">Показать все, что скрыто!</a>
                     </div>
                 </div>
             </div>
@@ -118,11 +119,11 @@
     <section id="lookup" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>Choose your destiny</h2>
-                <p>Pick a number or let us choose for you.</p>
+                <h2>Время удивительных историй</h2>
+                <p>Выбери число или доверься судьбе:</p>
                 <div id="getDiv">
                		<form id="numberForm"><input type="range" min="1" max="99" step="1" value="50" class="rangeslider" id="chosenNumber" /><br />
-               		<p><a href="#page-top" id="askBtn" class="btn btn-default btn-lg page-scroll">Tell me something funny</a> <a href="#page-top" id="randomBtn" class="btn btn-default btn-lg page-scroll">I'm feeling lucky</a></p></form>      
+               		<p><a href="#page-top" id="askBtn" class="btn btn-default btn-lg page-scroll">Сорвать покровы</a> <a href="#page-top" id="randomBtn" class="btn btn-default btn-lg page-scroll">Мне повезет!</a></p></form>      
                	</div>
                  
             </div>
@@ -134,8 +135,8 @@
         <div class="download-section">
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h2>About this project</h2>
-                    <p>Часть представленных данных собрана журналистами российского Esquire для публикации "Пора и часть знать" (2016) по следующим источникам: опросы ВЦИОМ, Фонда «Общественное мнение» и «Левада-Центра» за 2006–16 годы; AIPM, B2B International, BCG, DWBJV, ESET, HeadHunter, Ikea, Ipsos, Joblist.ru, Kelly Services, Mail.Ru, Mastercard, Millward Brown, Misperceiving Inequality, Nielsen, Online Market Intelligence, Skyscanner, Superjob.ru, TNS Gallup, Transparency International, «100 дорог», Институт полиомиелита и вирусных энцефалитов им. Чумакова, Институт развития избирательной системы РФ, Институт социологии РАН, исследовательская служба «Среда», исследовательский холдинг «Ромир», «Лаборатория Касперского», «Литрес», Минздравсоцразвития, Минпромторг, Минтруда, Московский государственный университет, Национальное агентство финансовых исследований, «НВД-недвижимость», НИИ питания, НИУ «Высшая школа экономики», НП «Эксперт», «Росгосстрах», Роспотребнадзор, Росздравнадзор, Российская академия народного хозяйства и государственного управления, Росстат, Федерация еврейских общин России, Финансовый университет при правительстве РФ, Центр исследования массового электронного сознания, Центробанк.</p>
+                    <h2>О проекте</h2>
+                    <p>Часть представленных данных собрана журналистами российского Esquire для публикации «Пора и часть знать» (2016) по следующим источникам: опросы ВЦИОМ, Фонда «Общественное мнение» и «Левада-Центра» за 2006–2016 годы; AIPM, B2B International, BCG, DWBJV, ESET, HeadHunter, Ikea, Ipsos, Joblist.ru, Kelly Services, Mail.Ru, Mastercard, Millward Brown, Misperceiving Inequality, Nielsen, Online Market Intelligence, Skyscanner, Superjob.ru, TNS Gallup, Transparency International, «100 дорог», Институт полиомиелита и вирусных энцефалитов им. Чумакова, Институт развития избирательной системы РФ, Институт социологии РАН, исследовательская служба «Среда», исследовательский холдинг «Ромир», «Лаборатория Касперского», «Литрес», Минздравсоцразвития, Минпромторг, Минтруда, Московский государственный университет, Национальное агентство финансовых исследований, «НВД-недвижимость», НИИ питания, НИУ «Высшая школа экономики», НП «Эксперт», «Росгосстрах», Роспотребнадзор, Росздравнадзор, Российская академия народного хозяйства и государственного управления, Росстат, Федерация еврейских общин России, Финансовый университет при правительстве РФ, Центр исследования массового электронного сознания, Центробанк.</p>
                 </div>
             </div>
         </div>
